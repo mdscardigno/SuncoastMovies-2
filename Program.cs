@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Linq;
 
 namespace SuncoastMovies
 {
+    //class or model
     class Movie
     {
         public int Id { get; set; }
@@ -14,7 +16,13 @@ namespace SuncoastMovies
     {
         static void Main(string[] args)
         {
-            // Console.WriteLine("Welcome to C#");
+            var context = new SuncoastMoviesContext();
+            // this feels like:
+            //
+            // var transactionCount = transactions.Count();
+            //var dinoCount = dinos.Count();
+            var movieCount = context.Movies.Count();
+            Console.WriteLine($"There are {movieCount} movies!");
         }
     }
 }
